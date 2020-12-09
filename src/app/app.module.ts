@@ -3,14 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DataViewModule } from 'primeng/dataview';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ProductInfoComponent } from './components/product-info.component';
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent,ProductInfoComponent
+  ],  
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule, BrowserAnimationsModule,
+    AppRoutingModule, DataViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]
