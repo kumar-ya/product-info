@@ -26,7 +26,7 @@
   }
 
   .toolbar {
-    position: fixed;
+    position: absolute;
     z-index:99999;
     top: 0;
     left: 0;
@@ -34,10 +34,15 @@
     height: 80px;
     display: flex;
     align-items: center;
-    background-color: #1976d2;
+    /* background-color: #1976d2; */
+    background-color: black;
     color: white;
     font-weight: 600;
     font-size: 16px;
+  }
+
+  .toolbar img {
+   background-color: white;
   }
 
   .toolbar img, .toolbar #welcome {
@@ -57,7 +62,10 @@
     display: flex;
     margin: 102px auto 32px;
     padding: 0 16px;
-    max-width: 960px;
+    /* max-width: 960px; */
+    width: 85%;
+    min-width: 85%;
+    max-width: 85%;
     flex-direction: column;
     align-items: center;
   }
