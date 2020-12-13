@@ -14,6 +14,6 @@ export class ReadFileService  {
 
     getProductData(){
         console.log('inside service');
-       return this._httpClient.get('../assets/source/ProductData.xlsx', {responseType: "blob"});
+       return this._httpClient.get('assets/source/ProductData.xlsx', {responseType: "blob"});
     }
 } 
