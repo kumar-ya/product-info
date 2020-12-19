@@ -1,70 +1,49 @@
 
+<h2 class="page-heading"> Product Info</h2> 
 <div style="border:1px solid lightgray;">
 <div id="cardDiv" >
+    <div *ngIf="showAllProduct">
     <p-dataView #dv [value]="productDetails" [paginator]="true" [rows]="9" filterBy="name"
          layout="grid">
         <ng-template pTemplate="header">
             <div class="p-d-flex p-flex-column p-jc-md-between" style="text-align: left;">
-                 <strong> Safest Cars in India</strong>
-                <!-- <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By Price" (onChange)="onSortChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown> -->
-                <!-- <span class="p-input-icon-left p-mb-2 p-mb-md-0">
-                    <i class="pi pi-search"></i>
-                  <input type="search" pInputText placeholder="Search by Name" (input)="dv.filter($event.target.value)">  
-                </span> -->
-                <!-- <p-dataViewLayoutOptions></p-dataViewLayoutOptions> -->
+                 <strong> Safest Cars in India</strong> 
             </div>
-        </ng-template>
-        <!-- <ng-template let-product pTemplate="listItem">
-            <div class="p-col-12">
-                <div class="product-list-item">
-                    <img [src]="'assets/productImages/' + product.image" [alt]="product.name"/>
-                    <div class="product-list-detail">
-                        <div class="product-name">{{product.name}}</div>
-                        <div class="product-description">{{product.description}}</div>
-                          <p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating>  
-                        <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{product.category}}</span>
-                    </div>
-                    <div class="product-list-action">
-                        <span class="product-price">${{product.price}}</span>
-                      <p-button icon="pi pi-shopping-cart" label="Add to Cart" [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"></p-button>  
-                         <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>  
-                    </div>
-                </div>
-            </div>
-        </ng-template> -->
+        </ng-template> 
         <ng-template let-product pTemplate="gridItem">
             <div class="p-col-12 p-md-4">
                 <div class="product-grid-item card">
-                    <div class="product-grid-item-top">
-                        <!-- <div>
-                            <i class="pi pi-tag product-category-icon"></i>
-                            <span class="product-category">{{product.category}}</span>
-                        </div> -->
-                        <!-- <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span> -->
-                    </div>
+                    <div class="product-grid-item-top"> </div>
                     <div class="product-grid-item-content">
                         <img [src]="'assets/productImages/' + product.name + product.image + '.jpg'" [alt]="product.name"/>
                         <div class="product-name">{{product.companyName + ' ' + product.name}}</div>
                         <span class="product-price">&#x20B9; {{product.minPrice + ' - ' + product.maxPrice  + ' ' +  product.priceUnit}}</span>
-                        <br>
-                        
+                        <br> 
                         <div class="product-feature">{{product.feature1 + ' &bull; ' + product.feature2  + ' &bull; ' +  product.feature3}}</div> 
-                        <!-- <div class="product-description">{{product.description}}</div> -->
-                        <!-- <p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating> -->
-                        <a class="product-detailLink"  href="#" > View Details </a>       
-                        <!-- <div class="product-moreDetails">
-                            <a href="#" > View Details </a>
-                        </div> -->
-
+                         <a class="product-detailLink"  (click)="showProductDetails(product)" > View Details </a>      
                     </div>
-                    <div class="product-grid-item-bottom" >
-                        
-                        <!-- <p-button icon="pi pi-shopping-cart" [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"></p-button> -->
+                    <div class="product-grid-item-bottom" > 
                     </div>
                 </div>
             </div>
         </ng-template>
     </p-dataView>
+</div>
+
+<!-- Below is the div for showcasing the specific product details -->
+<div *ngIf="!showAllProduct">
+    <a (click)="loadProductDetails()" style="cursor: pointer;"> View All Products </a> <br> <br>
+    <img [src]="'assets/productImages/' + currentProductDetails.name + currentProductDetails.image + '.jpg'" [alt]="currentProductDetails.name"/> 
+    <br>
+    Company: {{currentProductDetails.companyName}} <br>
+    Name: {{currentProductDetails.name}} <br>
+    Minimum Price: {{currentProductDetails.minPrice+ ' ' +  currentProductDetails.priceUnit}} <br>
+    Maximum Price: {{currentProductDetails.maxPrice + ' ' +  currentProductDetails.priceUnit}}  <br>
+  Feature 1: {{currentProductDetails.feature1}} <br>
+  Feature 2: {{currentProductDetails.feature2}}  <br>
+  Feature 3: {{currentProductDetails.feature3}} <br>
+</div>
+
 </div>
 
 

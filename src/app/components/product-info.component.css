@@ -1,17 +1,4 @@
 
-.content {
-    display: flex;
-    margin: 102px auto 32px;
-    padding: 0 16px;
-    /* max-width: 960px; */
-    width: 85%;
-    min-width: 85%;
-    max-width: 85%;
-    flex-direction: column;
-    align-items: center;
-  }
-
-
     #cardDiv {
     background: var(--surface-e);
     /* padding: 1rem; */
@@ -89,6 +76,25 @@
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         /* margin: 2rem 0; */
         height: 230px;
+    }
+
+    @media screen and (max-width:575px)
+    { 
+        .product-grid-item img { 
+            height: 200px;
+        } 
+    }
+    @media screen and (max-width:675px)
+    { 
+        .product-grid-item img { 
+            height: 180px;
+        } 
+    }
+    @media screen and (max-width:775px)
+    { 
+        .product-grid-item img { 
+            height: 150px;
+        } 
     }
 
     .product-grid-item .product-grid-item-content, .product-grid-item  .product-grid-item-bottom{

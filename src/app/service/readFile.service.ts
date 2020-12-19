@@ -1,6 +1,9 @@
 import { Injectable } from  '@angular/core';
 import {  HttpClient } from '@angular/common/http'
- 
+
+/** This service will read the physical file and return the observable to the calling method.
+  
+*/
 @Injectable({
 providedIn: 'root',
 
